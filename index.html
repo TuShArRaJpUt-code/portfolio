@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tushar Rajput • Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="logo">Tushar</div>
+    </nav>
+</header>
+
+<!-- INTRO -->
+<section id="intro" class="intro">
+    <div class="intro-container">
+        <div class="intro-img">
+            <img src="assets/profile.jpg" alt="Tushar">
+        </div>
+        <div class="intro-text">
+            <h2>Hi! My Name Is </h2>
+            <h1>Tushar Rajput</h1>
+            <p>I am a Software Developer</p>
+            <p>Passionate <span id="dynamic-text"></span></p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+       I’m Tushar Rajput, a Software Developer with hands-on experience in Android Development, Firebase, Python, and frontend technologies. I enjoy building practical, user-focused applications, and I’ve developed several real-world projects—such as an e-commerce app, a police station information app with Excel sync, and an educational website.
+    </p>
+    <p>
+        I am a quick learner who loves exploring new technologies, especially mobile development and AI tools. My strengths include problem-solving, clean and structured coding, and the ability to learn independently. I’m currently looking for opportunities where I can apply my skills, grow as a developer, and contribute to impactful projects.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-box">
+        <div class="skill-item">
+            <span>Frontend</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+            <span>Kotlin</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+            <span>Flutter</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+            <span>Python</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+            <span>C</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- PROJECTS 3D ROTATING CAROUSEL -->
+<section id="projects" class="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="carousel-wrapper">
+        <div class="carousel" id="carousel">
+            <div class="project-card">
+                <div class="project-img"><img src="assets/angel.jpeg" alt="Guardian Wings"></div>
+                <div class="project-info">
+                    <h3>Guardian Wings</h3>
+                    <p>An emergency app to alert contacts instantly with location tracking.</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="assets/kinddom.jpg" alt="World's Of Kingdom"></div>
+                <div class="project-info">
+                    <h3>World's Of Kingdom</h3>
+                    <p>A strategy game web app where players build and manage kingdoms.</p>
+                    <a href=" https://tusharrajput-code.github.io/WorldOfKingdom/" target="_blank">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="assets/insta.jpg" alt="Instagram Clone"></div>
+                <div class="project-info">
+                    <h3>Instagram Clone UI</h3>
+                    <p>A front-end clone of Instagram to practice UI/UX skills.</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="assets/book.jpg" alt="Book Store"></div>
+                <div class="project-info">
+                    <h3>Book Store Website</h3>
+                    <p>E-commerce website to browse, buy, and review books online.</p>
+                    <a href="https://tusharrajput-code.github.io/BookStore_WebSite/" target="_blank">View Project</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img"><img src="assets/cross.jpg" alt="Cross & Circle Game"></div>
+                <div class="project-info">
+                    <h3>Cross & Circle Game</h3>
+                    <p>An interactive online game with multiplayer support.</p>
+                    <a href="https://tusharrajput-code.github.io/tic-tac-toe/" target="_blank">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="assets/coding.png" alt="Mini Coding Portal"></div>
+                <div class="project-info">
+                    <h3>Mini Coding Portal</h3>
+                    <p>A mini coding platform to practice algorithms and small projects.</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Connect with me</p>
+    <div class="social-links">
+        <a href="">Instagram</a>
+        <a href="">LinkedIn</a>
+        <a href="">GitHub</a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
