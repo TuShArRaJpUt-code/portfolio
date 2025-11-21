@@ -92,7 +92,9 @@ body {background:#050510; color:#fff;}
 
 /* FOOTER */
 footer{text-align:center; padding:20px; margin-top:40px; border-top:1px solid cyan;}
-.social-links a{text-decoration:none; color:cyan; margin:0 15px; font-size:1.2rem;}
+.social-links a{text-decoration:none; color:cyan; margin:0 15px; font-size:1.2rem;
+height: 50px;
+width: 50px;}
 
 /* DYNAMIC TYPING */
 #dynamic-text {border-right:2px solid cyan; padding-right:2px; animation:blink 0.7s infinite;}
