@@ -32,54 +32,16 @@ function eraseRole() {
 // ==========================
 // 3D CAROUSEL SETUP
 // ==========================
-// Carousel rotation state (outer scope so other functions can use it)
-let carouselEl = null;
-let carouselRotationY = 0;
-let carouselIsRotating = true; // controls whether the carousel auto-rotates
-const carouselSpeed = 0.15; // degrees per frame (adjust to taste)
-let radius = 300; // distance from center (kept here so the rotation transform can use it)
-
 function setupCarousel() {
-  carouselEl = document.getElementById('carousel');
-  const cards = carouselEl.getElementsByClassName('project-card');
-  const numCards = cards.length;
+    const carousel = document.getElementById('carousel');
+    const cards = carousel.getElementsByClassName('project-card');
+    const numCards = cards.length;
+    const radius = 300; // distance from center
 
-  for (let i = 0; i < numCards; i++) {
-    const angle = (360 / numCards) * i;
-    cards[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-  }
-
-  // Ensure proper 3D rendering
-  carouselEl.style.transformStyle = 'preserve-3d';
-}
-
-// Smooth rotation loop using requestAnimationFrame
-function rotateCarouselLoop() {
-  if (!carouselEl) {
-    requestAnimationFrame(rotateCarouselLoop);
-    return;
-  }
-
-  if (carouselIsRotating) {
-    carouselRotationY = (carouselRotationY + carouselSpeed) % 360;
-    // translateZ(-radius) recenters the carousel so card translateZ(radius) positions are correct
-    carouselEl.style.transform = `translateZ(-${radius}px) rotateY(${carouselRotationY}deg)`;
-  }
-
-  requestAnimationFrame(rotateCarouselLoop);
-}
-
-function attachCarouselHoverHandlers() {
-  if (!carouselEl) return;
-
-  // Pause on mouse enter, resume on mouse leave
-  carouselEl.addEventListener('mouseenter', () => {
-    carouselIsRotating = false;
-  });
-
-  carouselEl.addEventListener('mouseleave', () => {
-    carouselIsRotating = true;
-  });
+    for (let i = 0; i < numCards; i++) {
+        const angle = (360 / numCards) * i;
+        cards[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+    }
 }
 
 // ==========================
