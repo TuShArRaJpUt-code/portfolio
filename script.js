@@ -30,16 +30,20 @@ function eraseRole() {
     }
 }
 
-
-
 // ==========================
 // 3D CAROUSEL SETUP
 // ==========================
+const carousel = document.getElementById("carousel");
+const cards = carousel.getElementsByClassName("project-card");
+let currentRotation = 0;
+let autoRotate = true;
+const autoSpeed = 0.3;
+let lastMouseX = 0;
+let isDragging = false;
+
 function setupCarousel() {
-    const carousel = document.getElementById("carousel");
-    const cards = carousel.getElementsByClassName("project-card");
     const numCards = cards.length;
-    const radius = 300;
+    const radius = Math.min(window.innerWidth / 3, 300); // responsive radius
 
     for (let i = 0; i < numCards; i++) {
         const angle = (360 / numCards) * i;
@@ -47,22 +51,11 @@ function setupCarousel() {
     }
 }
 
-
-
 // ==========================
-// 3D CAROUSEL INTERACTIVE SPIN
+// 3D CAROUSEL ROTATION LOOP
 // ==========================
-let autoRotate = true;
-let currentRotation = 0;
-let autoSpeed = 0.3; // normal auto spin speed
-let mouseSpeed = 0.4; // speed while dragging
-let lastMouseX = 0;
-
-const carousel = document.getElementById("carousel");
-
-// Animation loop
 function rotateCarousel() {
-    if (autoRotate) {
+    if (autoRotate && !isDragging) {
         currentRotation += autoSpeed;
         carousel.style.transform = `rotateY(${currentRotation}deg)`;
     }
@@ -70,60 +63,71 @@ function rotateCarousel() {
 }
 rotateCarousel();
 
-// Stop rotation on hover
-carousel.addEventListener("mouseenter", () => {
-    autoRotate = false;
-});
+// ==========================
+// CAROUSEL INTERACTIVITY
+// ==========================
+carousel.addEventListener("mouseenter", () => autoRotate = false);
+carousel.addEventListener("mouseleave", () => autoRotate = true);
 
-// Rotate based on mouse movement
+carousel.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    lastMouseX = e.clientX;
+});
 carousel.addEventListener("mousemove", (e) => {
-    const mouseX = e.clientX;
-
-    if (mouseX < lastMouseX) {
-        currentRotation -= mouseSpeed;
-    } else if (mouseX > lastMouseX) {
-        currentRotation += mouseSpeed;
-    }
-
-    lastMouseX = mouseX;
+    if (!isDragging) return;
+    const delta = e.clientX - lastMouseX;
+    currentRotation += delta * 0.5;
     carousel.style.transform = `rotateY(${currentRotation}deg)`;
+    lastMouseX = e.clientX;
 });
+carousel.addEventListener("mouseup", () => isDragging = false);
+carousel.addEventListener("mouseleave", () => isDragging = false);
 
-// Resume auto rotation when mouse leaves
-carousel.addEventListener("mouseleave", () => {
-    autoRotate = true;
+// Touch events for mobile
+carousel.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    lastMouseX = e.touches[0].clientX;
 });
-
-
+carousel.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const delta = e.touches[0].clientX - lastMouseX;
+    currentRotation += delta * 0.5;
+    carousel.style.transform = `rotateY(${currentRotation}deg)`;
+    lastMouseX = e.touches[0].clientX;
+});
+carousel.addEventListener("touchend", () => isDragging = false);
 
 // ==========================
-// INTRO SLIDE ANIMATION ON LOAD
+// INTRO SLIDE ANIMATION
 // ==========================
 window.addEventListener("load", () => {
     document.querySelector(".intro-img").classList.add("animate-left");
     document.querySelector(".intro-text").classList.add("animate-right");
 });
 
-
-
 // ==========================
-// SECTION FADE-IN ON SCROLL
+// SECTION FADE-IN AND SKILL ANIMATION
 // ==========================
+// Animate skill bars only when visible
+const skillFills = document.querySelectorAll(".skill-fill");
 const sections = document.querySelectorAll("section");
 
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // Animate skill bars when skills section is visible
+            if (entry.target.id === "skills") {
+                skillFills.forEach(fill => {
+                    fill.style.width = fill.dataset.width;
+                });
             }
-        });
-    },
-    { threshold: 0.2 }
-);
+        }
+    });
+}, { threshold: 0.2 });
 
 sections.forEach(section => observer.observe(section));
-
 
 
 // ==========================

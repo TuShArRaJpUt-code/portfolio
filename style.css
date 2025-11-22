@@ -1,6 +1,9 @@
 /* RESET */
 * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
 body {background:#050510; color:#fff;}
+html {
+    scroll-behavior: smooth;
+}
 
 /* NAVBAR */
 .navbar {display:flex; justify-content:space-between; padding:20px 40px; background: rgba(10,10,30,0.7); backdrop-filter: blur(10px); border-bottom:1px solid cyan; position:fixed; width:100%; top:0; z-index:10; animation:slideDown 1s ease;}
