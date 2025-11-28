@@ -1,7 +1,7 @@
 // ==========================
 // DYNAMIC TYPING EFFECT
 // ==========================
-const roles = ["App Developer", "Frontend Developer", "Web Developer", "Python Developer"];
+const roles = ["App Developer", "Frontend Developer", "Web Developer", "Python Developer","Programmer","Tech Enthusiast"];
 let roleIndex = 0, charIndex = 0;
 const dynamicText = document.getElementById("dynamic-text");
 const typingSpeed = 100;
@@ -158,3 +158,4 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 statsObserver.observe(statsSection);
+

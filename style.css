@@ -181,4 +181,62 @@ section.visible { opacity: 1; transform: translateY(0);}
     font-size: 1rem;
     color: #d0d0ff;
 }
+/* TECH STACK SECTION */
+.techstack {
+    margin-top: 80px;
+    padding: 40px 20px;
+}
+
+.techstack-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-top: 25px;
+}
+
+.tech-item {
+    width: 120px;
+    height: 120px;
+    background: rgba(0, 255, 255, 0.08);
+    border: 2px solid cyan;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px cyan;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tech-item:hover {
+    transform: translateY(-8px) scale(1.07);
+    box-shadow: 0 0 25px cyan;
+}
+
+.tech-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px cyan);
+}
+
+.tech-item p {
+    color: #d4d4ff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .tech-item {
+        width: 100px;
+        height: 100px;
+    }
+    .tech-item img {
+        width: 40px;
+        height: 40px;
+    }
+}
 
