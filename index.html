@@ -5,8 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tushar Rajput • Portfolio</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+<!-- CYBERPUNK TECHNICAL LOADER -->
+<div id="loader">
+    <div class="loader-hud">
+        <div class="rotating-ring"></div>
+        <div class="scan-lines"></div>
+        <div class="loader-bars">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="loader-text">INITIALIZING SYSTEM...</div>
+        <div class="digital-code">
+            <span>010101</span><span>110011</span><span>101010</span><span>111000</span>
+        </div>
+    </div>
+</div>
+
 
 <!-- NAVBAR -->
 <header>
@@ -20,6 +38,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="logo">Tushar</div>
+        
     </nav>
 </header>
 
@@ -34,6 +53,7 @@
             <h1>Tushar Rajput</h1>
             <p>I am a Software Developer</p>
             <p>Passionate <span id="dynamic-text"></span></p>
+            <a href="assets/TusharRajput.BTech.CDSD.3rd (1).pdf" target="_blank" class="resume-btn">Download Resume</a>
         </div>
     </div>
 </section>
@@ -48,6 +68,24 @@
         I am a quick learner who loves exploring new technologies, especially mobile development and AI tools. My strengths include problem-solving, clean and structured coding, and the ability to learn independently. I’m currently looking for opportunities where I can apply my skills, grow as a developer, and contribute to impactful projects.
     </p>
 </section>
+<section id="stats" class="stats">
+    <h2 class="section-title">My Stats</h2>
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3 id="projects-count">0</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3 id="workshops-count">0</h3>
+            <p>Workshops Attended</p>
+        </div>
+        <div class="stat-item">
+            <h3 id="skills-count">0</h3>
+            <p>Skills Learned</p>
+        </div>
+    </div>
+</section>
+
 
 <!-- SKILLS -->
 <section id="skills" class="skills">
@@ -55,34 +93,33 @@
     <div class="skills-box">
         <div class="skill-item">
             <span>Frontend</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+           <div class="skill-bar"><div class="skill-fill" style="--fill-width:90%;"></div></div>
+
         </div>
         <div class="skill-item">
             <span>Kotlin</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+            <div class="skill-bar"><div class="skill-fill" style="--fill-width:85%;"></div></div>
         </div>
         <div class="skill-item">
             <span>Flutter</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+            <div class="skill-bar"><div class="skill-fill" style="--fill-width:80%;"></div></div>
         </div>
         <div class="skill-item">
             <span>Python</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+            <div class="skill-bar"><div class="skill-fill" style="--fill-width:75%;"></div></div>
         </div>
         <div class="skill-item">
             <span>C</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+            <div class="skill-bar"><div class="skill-fill" style="--fill-width:70%;"></div></div>
         </div>
-        
     </div>
 </section>
 
-<!-- PROJECTS 3D ROTATING CAROUSEL -->
+<!-- PROJECTS -->
 <section id="projects" class="projects">
     <h2 class="section-title">My Projects</h2>
     <div class="carousel-wrapper">
         <div class="carousel" id="carousel">
-            <!-- Guardian angel-->
             <div class="project-card">
                 <div class="project-img"><img src="assets/angel.jpeg" alt="Guardian Wings"></div>
                 <div class="project-info">
@@ -91,16 +128,14 @@
                     <a href="assets/newNirbhaya.apk" target="_blank">Download</a>
                 </div>
             </div>
-              <!-- Worlds Of Kingdom-->
             <div class="project-card">
                 <div class="project-img"><img src="assets/kinddom.jpg" alt="World's Of Kingdom"></div>
                 <div class="project-info">
                     <h3>World's Of Kingdom</h3>
                     <p>A strategy game web app where players build and manage kingdoms.</p>
-                    <a href=" https://tusharrajput-code.github.io/WorldOfKingdom/" target="_blank">View Project</a>
+                    <a href="https://tusharrajput-code.github.io/WorldOfKingdom/" target="_blank">View Project</a>
                 </div>
             </div>
-              <!-- Instagram Clone UI-->
             <div class="project-card">
                 <div class="project-img"><img src="assets/insta.jpg" alt="Instagram Clone"></div>
                 <div class="project-info">
@@ -109,7 +144,6 @@
                     <a href="#" target="_blank">View Project</a>
                 </div>
             </div>
-              <!-- Book Store Website-->
             <div class="project-card">
                 <div class="project-img"><img src="assets/book.jpg" alt="Book Store"></div>
                 <div class="project-info">
@@ -118,7 +152,6 @@
                     <a href="https://tusharrajput-code.github.io/BookStore_WebSite/" target="_blank">View Project</a>
                 </div>
             </div>
-              <!-- Cross & Circle Game-->
             <div class="project-card">
                 <div class="project-img"><img src="assets/cross.jpg" alt="Cross & Circle Game"></div>
                 <div class="project-info">
@@ -127,7 +160,6 @@
                     <a href="https://tusharrajput-code.github.io/tic-tac-toe/" target="_blank">View Project</a>
                 </div>
             </div>
-              <!-- Coding Portal-->
             <div class="project-card">
                 <div class="project-img"><img src="assets/coding.png" alt="Mini Coding Portal"></div>
                 <div class="project-info">
@@ -136,8 +168,7 @@
                     <a href="#" target="_blank">View Project</a>
                 </div>
             </div>
-            <!--Portofolio-->
-              <div class="project-card">
+            <div class="project-card">
                 <div class="project-img"><img src="assets/portfolio.jpg" alt="Portfolio"></div>
                 <div class="project-info">
                     <h3>Portfolio</h3>
@@ -148,44 +179,45 @@
         </div>
     </div>
 </section>
- 
+
 <!-- WORKSHOPS -->
 <section id="workshops" class="workshops">
     <h2 class="section-title">Workshops Attended</h2>
     <div class="workshop-list">
-        <!-- Workshop Item -->
         <div class="workshop-card">
             <h3>Mastering Classical Ciphers In CyberSecurity</h3>
-            <p><strong>Organizer : </strong>SkillEcted </p>
-            <p><strong>Date : </strong>August 2025</p>
-            <a href="assets/android_workshop_certificate.pdf" target="_blank">
+            <p><strong>Organizer:</strong> SkillEcted </p>
+            <p><strong>Date:</strong> August 2025</p>
+            <a href="assets/workshop1.jpg" target="_blank">
                 <img src="assets/workshop1.jpg" alt="Certificate Thumbnail" class="certificate-img">
             </a>
         </div>
-
-        <!-- Another Workshop -->
         <div class="workshop-card">
             <h3>Master RESTful APIs with Node.js</h3>
-            <p><strong>Organizer : </strong>SkillEcted</p>
-            <p><strong>Date : </strong> August 2025</p>
-            <a href="assets/ai_bootcamp_certificate.pdf" target="_blank">
+            <p><strong>Organizer:</strong> SkillEcted</p>
+            <p><strong>Date:</strong> August 2025</p>
+            <a href="assets/workshop2.jpg" target="_blank">
                 <img src="assets/workshop2.jpg" alt="Certificate Thumbnail" class="certificate-img">
             </a>
         </div>
-         <!-- Another Workshop -->
         <div class="workshop-card">
-            <h3>Goggle Android Developer</h3>
-            <p><strong>Organizer : </strong>EduSkills</p>
-            <p><strong>Date : </strong>16 to 18 December 2024</p>
-            <a href="assets/ai_bootcamp_certificate.pdf" target="_blank">
+            <h3>Google Android Developer</h3>
+            <p><strong>Organizer:</strong> EduSkills</p>
+            <p><strong>Date:</strong> 16 to 18 December 2024</p>
+            <a href="assets/workshop3.jpg" target="_blank">
+                <img src="assets/workshop3.jpg" alt="Certificate Thumbnail" class="certificate-img">
+            </a>
+        </div>
+         <div class="workshop-card">
+            <h3>Machine Learning AI/ML</h3>
+            <p><strong>Organizer:</strong> SoftPro</p>
+            <p><strong>Date:</strong> 14 to 17 November 2025</p>
+            <a href="assets/workshop3.jpg" target="_blank">
                 <img src="assets/workshop3.jpg" alt="Certificate Thumbnail" class="certificate-img">
             </a>
         </div>
     </div>
 </section>
-
-
-
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
@@ -202,11 +234,21 @@
 <footer>
     <p>Connect with me</p>
     <div class="social-links">
-        <a href="">Instagram</a>
-        <a href="https://www.linkedin.com/in/tushar-rajput-376bba291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
-        <a href="https://github.com/TuShArRaJpUt-code">GitHub</a>
+        <a href="https://www.instagram.com/m_r.___t_u_s_h_a_r_?igsh=djk5cHlzbmh6NHR6" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/tushar-rajput-376bba291/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/TuShArRaJpUt-code" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://leetcode.com/u/rajput_tushar/" target="_blank">
+            <img src="assets/leetcode.png" alt="LeetCode" class="social-icon">
+        </a>
     </div>
 </footer>
+
 
 <script src="script.js"></script>
 </body>

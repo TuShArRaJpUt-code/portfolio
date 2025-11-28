@@ -3,7 +3,6 @@
 // ==========================
 const roles = ["App Developer", "Frontend Developer", "Web Developer", "Python Developer"];
 let roleIndex = 0, charIndex = 0;
-
 const dynamicText = document.getElementById("dynamic-text");
 const typingSpeed = 100;
 const erasingSpeed = 50;
@@ -44,16 +43,12 @@ let isDragging = false;
 function setupCarousel() {
     const numCards = cards.length;
     const radius = Math.min(window.innerWidth / 3, 300); // responsive radius
-
     for (let i = 0; i < numCards; i++) {
         const angle = (360 / numCards) * i;
         cards[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
     }
 }
 
-// ==========================
-// 3D CAROUSEL ROTATION LOOP
-// ==========================
 function rotateCarousel() {
     if (autoRotate && !isDragging) {
         currentRotation += autoSpeed;
@@ -63,16 +58,11 @@ function rotateCarousel() {
 }
 rotateCarousel();
 
-// ==========================
-// CAROUSEL INTERACTIVITY
-// ==========================
+// Carousel Interactivity
 carousel.addEventListener("mouseenter", () => autoRotate = false);
 carousel.addEventListener("mouseleave", () => autoRotate = true);
 
-carousel.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    lastMouseX = e.clientX;
-});
+carousel.addEventListener("mousedown", (e) => { isDragging = true; lastMouseX = e.clientX; });
 carousel.addEventListener("mousemove", (e) => {
     if (!isDragging) return;
     const delta = e.clientX - lastMouseX;
@@ -83,11 +73,8 @@ carousel.addEventListener("mousemove", (e) => {
 carousel.addEventListener("mouseup", () => isDragging = false);
 carousel.addEventListener("mouseleave", () => isDragging = false);
 
-// Touch events for mobile
-carousel.addEventListener("touchstart", (e) => {
-    isDragging = true;
-    lastMouseX = e.touches[0].clientX;
-});
+// Touch events
+carousel.addEventListener("touchstart", (e) => { isDragging = true; lastMouseX = e.touches[0].clientX; });
 carousel.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
     const delta = e.touches[0].clientX - lastMouseX;
@@ -98,42 +85,76 @@ carousel.addEventListener("touchmove", (e) => {
 carousel.addEventListener("touchend", () => isDragging = false);
 
 // ==========================
-// INTRO SLIDE ANIMATION
+// INTRO ANIMATION & LOADER
 // ==========================
+const loader = document.getElementById("loader");
+const introImg = document.querySelector('.intro-img');
+const introText = document.querySelector('.intro-text');
+const minLoaderTime = 3000;
+const startTime = Date.now();
+
 window.addEventListener("load", () => {
-    document.querySelector(".intro-img").classList.add("animate-left");
-    document.querySelector(".intro-text").classList.add("animate-right");
+    // Loader fade
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(minLoaderTime - elapsedTime, 0);
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.transition = "opacity 0.5s ease";
+        setTimeout(() => loader.style.display = "none", 500);
+    }, remainingTime);
+
+    // Intro animation
+    introImg.classList.add('animate-left');
+    introText.classList.add('animate-right');
 });
 
 // ==========================
-// SECTION FADE-IN AND SKILL ANIMATION
+// SECTIONS & SKILLS ANIMATION
 // ==========================
-// Animate skill bars only when visible
-const skillFills = document.querySelectorAll(".skill-fill");
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll('section');
+const skillFills = document.querySelectorAll('.skill-fill');
 
-const observer = new IntersectionObserver((entries) => {
+const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-
-            // Animate skill bars when skills section is visible
-            if (entry.target.id === "skills") {
-                skillFills.forEach(fill => {
-                    fill.style.width = fill.dataset.width;
-                });
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            if(entry.target.id === 'skills'){
+                skillFills.forEach(fill => fill.style.width = fill.dataset.width);
             }
+            sectionObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.2 });
 
-sections.forEach(section => observer.observe(section));
-
+sections.forEach(section => sectionObserver.observe(section));
 
 // ==========================
-// INITIALIZE EVERYTHING
+// INITIALIZE
 // ==========================
 document.addEventListener("DOMContentLoaded", () => {
     typeRole();
     setupCarousel();
 });
+function animateCount(id, end) {
+    let count = 0;
+    const el = document.getElementById(id);
+    const step = Math.ceil(end / 100);
+    const interval = setInterval(() => {
+        count += step;
+        if(count > end) count = end;
+        el.textContent = count;
+        if(count === end) clearInterval(interval);
+    }, 20);
+}
+
+const statsSection = document.getElementById('stats');
+const statsObserver = new IntersectionObserver((entries) => {
+    if(entries[0].isIntersecting) {
+        animateCount('projects-count', 7);
+        animateCount('workshops-count', 4);
+        animateCount('skills-count', 5);
+        statsObserver.unobserve(statsSection);
+    }
+}, { threshold: 0.5 });
+
+statsObserver.observe(statsSection);
