@@ -158,4 +158,44 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 statsObserver.observe(statsSection);
+// STATS COUNTER
+const stats = [
+  { id: 'projects-count', target: 7 },  // replace with your actual numbers
+  { id: 'workshops-count', target: 4 },
+  { id: 'skills-count', target: 5 }
+];
+
+let statsStarted = false;
+
+function startStatsCounting() {
+  stats.forEach(stat => {
+    const element = document.getElementById(stat.id);
+    let count = 0;
+    const increment = stat.target / 60; // speed (60 frames approx.)
+
+    function updateCounter() {
+      count += increment;
+      if (count < stat.target) {
+        element.innerText = Math.floor(count);
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.innerText = stat.target;
+      }
+    }
+
+    updateCounter();
+  });
+}
+
+// Trigger counting when the stats section comes into view
+window.addEventListener('scroll', () => {
+  const statsSection = document.getElementById('stats');
+  const sectionTop = statsSection.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  if (sectionTop < windowHeight - 100 && !statsStarted) {
+    statsStarted = true;
+    startStatsCounting();
+  }
+});
 
