@@ -98,13 +98,13 @@ section.visible { opacity: 1; transform: translateY(0);}
 .scan-lines { width: 200px; height: 2px; background: cyan; box-shadow: 0 0 15px cyan; margin-bottom: 20px; animation: scan 1s infinite linear;}
 @keyframes scan {0% { transform: translateX(-220px);} 100% { transform: translateX(220px);}}
 .loader-bars { display:flex; gap:6px; margin-bottom:20px;}
-.loader-bars span { display:block; width:6px; height:20px; background: cyan; box-shadow: 0 0 10px cyan; animation: pulse 1s infinite;}
+.loader-bars span { display:block; width:6px; height:20px; background: cyan; animation: pulse 1s infinite;}
 .loader-bars span:nth-child(2) { animation-delay:0.2s;}
 .loader-bars span:nth-child(3) { animation-delay:0.4s;}
 .loader-bars span:nth-child(4) { animation-delay:0.6s;}
 .loader-bars span:nth-child(5) { animation-delay:0.8s;}
 @keyframes pulse { 0%, 100% { height:10px; opacity:0.3;} 50% { height:30px; opacity:1;}}
-.loader-text { font-family: 'Poppins', sans-serif; color: cyan; text-shadow:0 0 10px cyan,0 0 20px cyan; font-weight:700; letter-spacing:2px; margin-bottom:15px; animation: flicker 1.5s infinite; font-size: 1.2rem;}
+.loader-text { font-family: 'Poppins', sans-serif; color: cyan; font-weight:700; letter-spacing:2px; margin-bottom:15px; animation: flicker 1.5s infinite; font-size: 1.2rem;}
 @keyframes flicker { 0%,100% { opacity:1;} 50% { opacity:0.5;}}
 .digital-code { display:flex; gap:10px; font-family: monospace; color: cyan; text-shadow:0 0 5px cyan; animation: code-flicker 1.2s infinite;}
 .digital-code span { display:inline-block;}
