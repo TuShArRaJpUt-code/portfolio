@@ -160,8 +160,8 @@ const statsObserver = new IntersectionObserver((entries) => {
 statsObserver.observe(statsSection);
 // STATS COUNTER
 const stats = [
-  { id: 'projects-count', target: 7 },  // replace with your actual numbers
-  { id: 'workshops-count', target: 8 },
+  { id: 'projects-count', target: 8 },  // replace with your actual numbers
+  { id: 'workshops-count', target: 9 },
   { id: 'skills-count', target: 5 }
 ];
 
