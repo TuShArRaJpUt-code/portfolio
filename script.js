@@ -161,7 +161,7 @@ statsObserver.observe(statsSection);
 // STATS COUNTER
 const stats = [
   { id: 'projects-count', target: 8 },  // replace with your actual numbers
-  { id: 'workshops-count', target: 9 },
+  { id: 'workshops-count', target: 10 },
   { id: 'skills-count', target: 5 }
 ];
 
